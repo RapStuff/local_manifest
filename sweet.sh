@@ -9,7 +9,7 @@ NC='\033[0m' # No Color
 
 # Repository List: "URL|BRANCH|TARGET_PATH"
 REPOS=(
-    "https://github.com/rapstuff/device_xiaomi_sweet.git|16|device/xiaomi/sweet"
+    "https://github.com/rapstuff/device_xiaomi_sweet.git|16-AviumUI|device/xiaomi/sweet"
     "https://github.com/rapstuff/device_xiaomi_sm6150-common.git|16|device/xiaomi/sm6150-common"
     "https://github.com/rapstuff/device_xiaomi_miuicamera-sweet.git|16|device/xiaomi/miuicamera-sweet"
     "https://github.com/rapstuff/vendor_xiaomi_sweet.git|16|vendor/xiaomi/sweet"
