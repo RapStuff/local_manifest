@@ -18,6 +18,7 @@ REPOS=(
     "https://github.com/rapstuff/kernel_xiaomi_sweet.git|16.0|kernel/xiaomi/sm6150"
     "https://github.com/rapstuff/android_hardware_xiaomi.git|lineage-23.1|hardware/xiaomi"
     "https://github.com/Cilok-LAB/android_hardware_dolby.git|lineage-23.1|hardware/dolby"
+    "https://github.com/SoulEye-sweet/packages_apps_ViPER4AndroidFX.git|bq2|packages/apps/ViPER4AndroidFX"
 )
 
 echo -e "${CYAN}----------------------${NC}"
