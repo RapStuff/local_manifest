@@ -17,10 +17,11 @@ REPOS=(
     "https://github.com/rapstuff/vendor_xiaomi_miuicamera-sweet.git|16|vendor/xiaomi/miuicamera-sweet"
     "https://github.com/rapstuff/kernel_xiaomi_sweet.git|16.0|kernel/xiaomi/sm6150"
     "https://github.com/rapstuff/android_hardware_xiaomi.git|lineage-23.1|hardware/xiaomi"
+    "https://github.com/Cilok-LAB/android_hardware_dolby.git|lineage-23.1|hardware/dolby"
 )
 
 echo -e "${CYAN}----------------------${NC}"
-echo -e "${CYAN}RapStuff Auto Sync      ${NC}"
+echo -e "${CYAN}RapStuff Auto Sync    ${NC}"
 echo -e "${CYAN}-------${NC}\n"
 
 # ---------------------------------------------------------
