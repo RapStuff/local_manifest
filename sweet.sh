@@ -79,6 +79,31 @@ for entry in "${REPOS[@]}"; do
     fi
 done
 
+# ---------------------------------------------------------
+# PHASE 4: KernelSU-Next Integration
+# ---------------------------------------------------------
+KERNEL_DIR="kernel/xiaomi/sm6150"
+
+echo -e "\n${CYAN}--- KernelSU Integration ---${NC}"
+if [ -d "$KERNEL_DIR" ]; then
+    echo -n -e "${YELLOW}Do you want to integrate KernelSU-Next (hookless)? (y/n): ${NC}"
+    read -n 1 -r ksu_confirm < /dev/tty
+    echo -e "\n"
+
+    if [[ "$ksu_confirm" =~ ^[Yy]$ ]]; then
+        echo -e "${GREEN}[+] Integrating KernelSU-Next into $KERNEL_DIR...${NC}"
+        # Masuk ke direktori kernel, jalankan skrip KSU, lalu kembali
+        pushd "$KERNEL_DIR" > /dev/null || exit
+        curl -LSs "https://raw.githubusercontent.com/Sorayukii/KernelSU-Next/stable/kernel/setup.sh" | bash -s hookless
+        popd > /dev/null || exit
+        echo -e "${GREEN}[+] KernelSU-Next integration complete.${NC}"
+    else
+        echo -e "${YELLOW}[i] KernelSU-Next integration skipped.${NC}"
+    fi
+else
+    echo -e "${RED}[!] Kernel directory ($KERNEL_DIR) not found. Skipping KernelSU-Next integration.${NC}"
+fi
+
 echo -e "\n${CYAN}-------${NC}"
 echo -e "${GREEN}[+] Sync completed successfully!${NC}"
 echo -e "${CYAN}---------------------${NC}"
