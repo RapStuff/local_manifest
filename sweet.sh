@@ -7,9 +7,48 @@ RED='\033[0;31m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
 
+echo -e "${CYAN}----------------------${NC}"
+echo -e "${CYAN}RapStuff Auto Sync    ${NC}"
+echo -e "${CYAN}-------${NC}\n"
+
+# ---------------------------------------------------------
+# PHASE 0: Auto-Detect Branch for device_xiaomi_sweet
+# ---------------------------------------------------------
+SWEET_URL="https://github.com/rapstuff/device_xiaomi_sweet.git"
+echo -e "${YELLOW}[*] Detecting available branches for device_xiaomi_sweet...${NC}"
+
+# Fetch the list of branches directly from GitHub
+mapfile -t AVAILABLE_BRANCHES < <(git ls-remote --heads "$SWEET_URL" | awk -F'refs/heads/' '{print $2}')
+
+if [ ${#AVAILABLE_BRANCHES[@]} -eq 0 ]; then
+    echo -e "${RED}[!] Failed to fetch branches or repository is empty. Using default (16-AviumUI).${NC}"
+    SWEET_BRANCH="16-AviumUI"
+else
+    echo -e "\n${CYAN}Available branches:${NC}"
+    for i in "${!AVAILABLE_BRANCHES[@]}"; do
+        echo "$((i+1))) ${AVAILABLE_BRANCHES[$i]}"
+    done
+    
+    echo -n -e "\n${YELLOW}Enter your choice number (1-${#AVAILABLE_BRANCHES[@]}): ${NC}"
+    read -r branch_choice < /dev/tty
+    echo -e "\n"
+    
+    # Validate numeric input
+    if [[ "$branch_choice" =~ ^[0-9]+$ ]] && [ "$branch_choice" -ge 1 ] && [ "$branch_choice" -le "${#AVAILABLE_BRANCHES[@]}" ]; then
+        idx=$((branch_choice-1))
+        SWEET_BRANCH="${AVAILABLE_BRANCHES[$idx]}"
+        echo -e "${GREEN}[+] Selected branch: $SWEET_BRANCH${NC}\n"
+    else
+        SWEET_BRANCH="16-AviumUI"
+        echo -e "${RED}[!] Invalid input. Using default branch: $SWEET_BRANCH${NC}\n"
+    fi
+fi
+
+# ---------------------------------------------------------
 # Repository List: "URL|BRANCH|TARGET_PATH"
+# ---------------------------------------------------------
 REPOS=(
-    "https://github.com/rapstuff/device_xiaomi_sweet.git|16-AviumUI|device/xiaomi/sweet"
+    "https://github.com/rapstuff/device_xiaomi_sweet.git|${SWEET_BRANCH}|device/xiaomi/sweet"
     "https://github.com/rapstuff/device_xiaomi_sm6150-common.git|16|device/xiaomi/sm6150-common"
     "https://github.com/rapstuff/device_xiaomi_miuicamera-sweet.git|16|device/xiaomi/miuicamera-sweet"
     "https://github.com/rapstuff/vendor_xiaomi_sweet.git|16|vendor/xiaomi/sweet"
@@ -20,10 +59,6 @@ REPOS=(
     "https://github.com/Cilok-LAB/android_hardware_dolby.git|lineage-23.1|hardware/dolby"
     "https://github.com/SoulEye-sweet/packages_apps_ViPER4AndroidFX.git|bq2|packages/apps/ViPER4AndroidFX"
 )
-
-echo -e "${CYAN}----------------------${NC}"
-echo -e "${CYAN}RapStuff Auto Sync    ${NC}"
-echo -e "${CYAN}-------${NC}\n"
 
 # ---------------------------------------------------------
 # PHASE 1: Detect existing folders
@@ -74,7 +109,6 @@ for entry in "${REPOS[@]}"; do
         echo -e "${YELLOW}[*] Skipped: $path already exists.${NC}"
     else
         echo -e "\n${GREEN}[+] Cloning [$branch] into $path...${NC}"
-        # Standard clone to show native progress
         git clone --depth=1 -b "$branch" "$url" "$path"
     fi
 done
@@ -92,7 +126,6 @@ if [ -d "$KERNEL_DIR" ]; then
 
     if [[ "$ksu_confirm" =~ ^[Yy]$ ]]; then
         echo -e "${GREEN}[+] Integrating KernelSU-Next into $KERNEL_DIR...${NC}"
-        # Masuk ke direktori kernel, jalankan skrip KSU, lalu kembali
         pushd "$KERNEL_DIR" > /dev/null || exit
         curl -LSs "https://raw.githubusercontent.com/Sorayukii/KernelSU-Next/stable/kernel/setup.sh" | bash -s hookless
         popd > /dev/null || exit
