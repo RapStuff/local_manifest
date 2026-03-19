@@ -50,7 +50,7 @@ fi
 REPOS=(
     # QCOM & Dolby Trees
     "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_hardware_qcom-caf_common.git|lineage-23.1|hardware/qcom-caf/common"
-    "https://github.com/Cilok-LAB/android_hardware_dolby.git|lineage-23.1|hardware/dolby"
+    "https://github.com/roms-experimental/android_packages_apps_DolbyAtmos.git|lineage-23.1|packages/apps/DolbyAtmos"
     
     # QCOM Audio, Display, & Data
     "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_device_qcom_sepolicy_vndr.git|lineage-23.1-caf-sm6225|device/qcom/sepolicy_vndr/sm6225"
@@ -62,13 +62,16 @@ REPOS=(
     "https://github.com/LineageOS/android_vendor_qcom_opensource_dataipa.git|lineage-23.1-caf-sm8550|hardware/qcom-caf/sm6225/dataipa"
     "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/hardware_qcom_display.git|lineage-23.1-caf-sm6225|hardware/qcom-caf/sm6225/display"
 
-    # RapStuff Trees (Xiaomi & Xun)
-    "https://github.com/RapStuff/android_hardware_xiaomi.git|lineage-23.1|hardware/xiaomi"
-    "https://github.com/RapStuff/android_device_xiaomi_sm6225-common.git|16.0|device/xiaomi/sm6225-common"
-    "https://github.com/RapStuff/android_vendor_xiaomi_sm6225-common.git|lineage-23.0|vendor/xiaomi/sm6225-common"
+    # Xiaomi Sepolicy & Hardware (Reverted to source)
+    "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_device_xiaomi_sepolicy.git|lineage-23.1|device/xiaomi/sepolicy"
+    "https://github.com/roms-experimental/android_hardware_xiaomi.git|lineage-23.1|hardware/xiaomi"
+
+    # RapStuff Trees (sm6225-common & xun)
+    "https://github.com/RapStuff/android_device_xiaomi_sm6225-common.git|${XUN_BRANCH}|device/xiaomi/sm6225-common"
+    "https://github.com/RapStuff/android_vendor_xiaomi_sm6225-common.git|${XUN_BRANCH}|vendor/xiaomi/sm6225-common"
     "https://github.com/RapStuff/android_device_xiaomi_xun.git|${XUN_BRANCH}|device/xiaomi/xun"
-    "https://github.com/RapStuff/android_vendor_xiaomi_xun.git|16.0|vendor/xiaomi/xun"
-    "https://github.com/RapStuff/android_device_xiaomi_xun-kernel.git|16.0|device/xiaomi/xun-kernel"
+    "https://github.com/RapStuff/android_vendor_xiaomi_xun.git|${XUN_BRANCH}|vendor/xiaomi/xun"
+    "https://github.com/RapStuff/android_device_xiaomi_xun-kernel.git|${XUN_BRANCH}|device/xiaomi/xun-kernel"
 )
 
 # ---------------------------------------------------------
