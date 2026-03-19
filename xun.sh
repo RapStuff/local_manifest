@@ -50,7 +50,7 @@ fi
 REPOS=(
     # QCOM & Dolby Trees
     "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_hardware_qcom-caf_common.git|lineage-23.1|hardware/qcom-caf/common"
-    "https://github.com/roms-experimental/android_packages_apps_DolbyAtmos.git|lineage-23.1|packages/apps/DolbyAtmos"
+    "https://github.com/Cilok-LAB/android_hardware_dolby.git|lineage-23.1|hardware/dolby"
     
     # QCOM Audio, Display, & Data
     "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_device_qcom_sepolicy_vndr.git|lineage-23.1-caf-sm6225|device/qcom/sepolicy_vndr/sm6225"
