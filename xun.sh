@@ -67,11 +67,11 @@ REPOS=(
     "https://github.com/roms-experimental/android_hardware_xiaomi.git|lineage-23.1|hardware/xiaomi"
 
     # RapStuff Trees (sm6225-common & xun)
-    "https://github.com/RapStuff/android_device_xiaomi_sm6225-common.git|${XUN_BRANCH}|device/xiaomi/sm6225-common"
+    "https://github.com/RapStuff/android_device_xiaomi_sm6225-common.git|16.0|device/xiaomi/sm6225-common"
     "https://github.com/RapStuff/android_vendor_xiaomi_sm6225-common.git|lineage-22.2|vendor/xiaomi/sm6225-common"
-    "https://github.com/RapStuff/android_device_xiaomi_xun.git|${XUN_BRANCH}|device/xiaomi/xun"
+    "https://github.com/RapStuff/android_device_xiaomi_xun.git|16.0|device/xiaomi/xun"
     "https://github.com/RapStuff/android_vendor_xiaomi_xun.git|${XUN_BRANCH}|vendor/xiaomi/xun"
-    "https://github.com/RapStuff/android_device_xiaomi_xun-kernel.git|${XUN_BRANCH}|device/xiaomi/xun-kernel"
+    "https://github.com/RapStuff/android_device_xiaomi_xun-kernel.git|16.0|device/xiaomi/xun-kernel"
 )
 
 # ---------------------------------------------------------
