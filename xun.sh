@@ -63,7 +63,7 @@ REPOS=(
     "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/hardware_qcom_display.git|lineage-23.1-caf-sm6225|hardware/qcom-caf/sm6225/display"
 
     # Xiaomi Sepolicy & Hardware (Reverted to source)
-    "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_device_xiaomi_sepolicy.git|lineage-23.1|device/xiaomi/sepolicy"
+    "https://github.com/Xiaomi-Redmi-Pad-SE-Resources/android_device_xiaomi_sepolicy.git|lineage-22.2|device/xiaomi/sepolicy"
     "https://github.com/roms-experimental/android_hardware_xiaomi.git|lineage-23.1|hardware/xiaomi"
 
     # RapStuff Trees (sm6225-common & xun)
