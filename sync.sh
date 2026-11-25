@@ -157,14 +157,17 @@ load_device_repos() {
             )
             ;;
         kj7)
+            local mtk_branch
             select_branch "https://github.com/RapStuff/android_device_tecno_kj7.git" "lineage-24.0" "android_device_tecno_kj7"
             branch="$SELECTED_BRANCH"
+            select_branch "https://github.com/LineageOS/android_hardware_mediatek.git" "lineage-24.0" "android_hardware_mediatek"
+            mtk_branch="$SELECTED_BRANCH"
             REPOS=(
                 "https://github.com/RapStuff/android_device_tecno_kj7.git|${branch}|device/tecno/kj7"
                 "https://github.com/RapStuff/android_vendor_tecno_kj7.git|lineage-24.0|vendor/tecno/kj7"
                 "https://github.com/RapStuff/android_device_tecno_kj7-kernel.git|lineage-24.0|device/tecno/TECNO-KJ7-kernel"
                 "https://github.com/RapStuff/android_device_leica_kj7.git|main|vendor/tecno/leicacamera"
-                "https://github.com/LineageOS/android_hardware_mediatek.git|lineage-24.0|hardware/mediatek"
+                "https://github.com/LineageOS/android_hardware_mediatek.git|${mtk_branch}|hardware/mediatek"
             )
             ;;
     esac
