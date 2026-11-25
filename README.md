@@ -1,19 +1,34 @@
 # RapStuff Auto Sync Script
 
-A simple interactive Bash script to quickly fetch the entire Android source tree (Device, Vendor, Kernel, Hardware, and Dolby) for **Xiaomi Redmi Note 10 Pro (Sweet)** Or Other Devices.
+Interactive Bash script to clone device, vendor, kernel, and hardware repositories for RapStuff custom ROM builds from your Android ROM source root directory.
 
-Specially configured for building custom ROMs (e.g., AviumUI).
+## Supported devices
 
-## How to Use
+- `sweet`: Xiaomi Redmi Note 10 Pro
+- `xun`: Xiaomi Redmi Pad SE
+- `kj7`: TECNO Spark 20 Pro+
 
-You don't need to clone this repository or download the script manually. Just run the following command directly in your Android ROM source root directory:
+## How to use
 
-### For Sweet (Redmi Note 10 Pro)
+Run from the root of your Android ROM source tree without cloning this repository.
+
+Pick a device interactively:
+
 ```bash
-curl -sL https://raw.githubusercontent.com/RapStuff/local_manifest/refs/heads/main/sweet.sh | bash
+curl -sL https://raw.githubusercontent.com/RapStuff/local_manifest/refs/heads/main/sync.sh | bash
 ```
 
-### For Xun (Redmi Pad SE)
+Or target a device directly:
+
 ```bash
+curl -sL https://raw.githubusercontent.com/RapStuff/local_manifest/refs/heads/main/sync.sh | bash -s -- sweet
+curl -sL https://raw.githubusercontent.com/RapStuff/local_manifest/refs/heads/main/sync.sh | bash -s -- xun
+curl -sL https://raw.githubusercontent.com/RapStuff/local_manifest/refs/heads/main/sync.sh | bash -s -- kj7
+```
+
+The legacy `sweet.sh` and `xun.sh` wrappers still work:
+
+```bash
+curl -sL https://raw.githubusercontent.com/RapStuff/local_manifest/refs/heads/main/sweet.sh | bash
 curl -sL https://raw.githubusercontent.com/RapStuff/local_manifest/refs/heads/main/xun.sh | bash
 ```
