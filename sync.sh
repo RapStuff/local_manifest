@@ -168,6 +168,7 @@ load_device_repos() {
                 "https://github.com/RapStuff/android_device_tecno_kj7-kernel.git|lineage-24.0|device/tecno/TECNO-KJ7-kernel"
                 "https://github.com/RapStuff/android_device_leica_kj7.git|main|vendor/tecno/leicacamera"
                 "https://github.com/LineageOS/android_hardware_mediatek.git|${mtk_branch}|hardware/mediatek"
+                "https://github.com/LineageOS/android_device_mediatek_sepolicy_vndr.git|lineage-24.0|device/mediatek/sepolicy_vndr"
             )
             ;;
     esac
